@@ -193,3 +193,97 @@ function buscar(array, elementoABuscar){
         `)
     }
 }
+
+/* 3-Escribe una clase que permita crear distintos objetos “rectángulos”, con las 
+propiedades de alto y ancho, mas los métodos necesarios para modificar y mostrar 
+sus propiedades, calcular el perímetro y el área*/
+
+class Rectangulo{
+    constructor(alto, ancho){
+        this._alto = alto;
+        this._ancho = ancho;
+    }
+
+    get alto(){
+        return this._alto;
+    }
+
+    get ancho(){
+        return this._ancho;
+    }
+
+    set alto(altura){
+        this._alto = altura;
+    }
+
+    set ancho(base){
+        this._ancho = base;
+    }
+    calcularPerimetro(){
+        console.log((this._alto + this._ancho) * 2);
+    }
+    calcularArea(){
+        console.log(this._alto * this._ancho);
+    }
+}
+
+
+/* 
+Escribe una clase Producto para crear objetos. Estos objetos, deben presentar las propiedades
+código, nombre y precio, además del método imprime datos, el cual escribe por pantalla los 
+valores de sus propiedades.
+Posteriormente, cree tres instancias de este objeto y guárdalas en un array.
+Por último, utilice el método imprime datos para mostrar por pantalla los valores de los tres
+objetos instanciados.
+*/
+
+class Producto{
+    constructor(codigo, nombre, precio){
+        this._codigo = codigo;
+        this._nombre = nombre;
+        this._precio = precio;
+    }
+
+    get codigo(){
+        return this._codigo;
+    }
+
+    get nombre(){
+        return this._nombre;
+    }
+
+    get precio(){
+        return this._precio;
+    }
+
+    set codigo(nuevoCodigo){
+        this._codigo = nuevoCodigo;
+    }
+
+    set nombre(nuevoNombre){
+        this._nombre = nuevoNombre;
+    }
+
+    set precio(nuevoPrecio){
+        this._precio = nuevoPrecio;
+    }
+    
+    imprimirDatos(){
+        return document.write(`<p>Código: ${this._codigo}</p>
+        <p>Nombre producto: ${this._nombre}</p>
+        <p>Precio: &dollar; ${this._precio}</p>`);
+    }
+}
+
+const producto1 = new Producto("001", "Taco de pollo", 300);
+const producto2 = new Producto("002", "Taco de carne", 300);
+const producto3 = new Producto("003", "Quesadilla napolitana", 250);
+
+const arrayProductos = [];
+arrayProductos.push(producto1);
+arrayProductos.push(producto2);
+arrayProductos.push(producto3);
+
+arrayProductos.forEach(element => {
+    element.imprimirDatos();
+});
