@@ -24,14 +24,6 @@ let cuenta = {
     }
 }
 
-/*Crear un objeto persona que tenga las propiedades: nombre, apellido, edad, un valor verdadero o
-falso que indique si es estudiante y una lista de hobbies, este objeto debe contener los métodos 
-para presentar a la persona, el cual mostrará todos los datos, y los métodos agregar, borrar y 
-buscar un hobbie.Agregar por lo menos 3 hobbies y mostrarlos por pantalla, luego buscar el hobbie 
-‘viajar’ e indicar si la persona lo tiene o no. Por ultimo eliminar el primer hobbie y volver a 
-mostrar todos por pantalla.
-*/
-
 let persona = {
     nombre: "Chat",
     apellido: "GPT",
@@ -61,20 +53,6 @@ let persona = {
         document.write(`<p>${ hobbieABuscar === undefined ? 'hobbie no encontrado' : hobbieABuscar }</p>`)
     }
 }
-
-/*
-Con el siguiente array de objetos, crear una funcion que permita dibujar una tabla con las columnas 
-Producto - categoria - precio. Realizar las siguientes tareas:
-
-Mostrar la tabla completa
-
-filtrar el arreglo de productos por ‘Protectores solares' y mostrar la tabla filtrada.
-
-Buscar un producto serum y mostrarlo por pantalla,
-
-Buscar un producto 'Bruma’ y mostrar un mensaje adecuado para el usuario si el producto 
-no existe en el array.
-*/
 
 let listaProductos = [
     {
@@ -194,10 +172,6 @@ function buscar(array, elementoABuscar){
     }
 }
 
-/* 3-Escribe una clase que permita crear distintos objetos “rectángulos”, con las 
-propiedades de alto y ancho, mas los métodos necesarios para modificar y mostrar 
-sus propiedades, calcular el perímetro y el área*/
-
 class Rectangulo{
     constructor(alto, ancho){
         this._alto = alto;
@@ -226,16 +200,6 @@ class Rectangulo{
         console.log(this._alto * this._ancho);
     }
 }
-
-
-/* 
-Escribe una clase Producto para crear objetos. Estos objetos, deben presentar las propiedades
-código, nombre y precio, además del método imprime datos, el cual escribe por pantalla los 
-valores de sus propiedades.
-Posteriormente, cree tres instancias de este objeto y guárdalas en un array.
-Por último, utilice el método imprime datos para mostrar por pantalla los valores de los tres
-objetos instanciados.
-*/
 
 class Producto{
     constructor(codigo, nombre, precio){
@@ -287,3 +251,142 @@ arrayProductos.push(producto3);
 arrayProductos.forEach(element => {
     element.imprimirDatos();
 });
+
+const generaciones = [["Silent Generation", "Austeridad"],
+    ["Baby Boom", "Ambición"], 
+    ["Generación X","Obsesión por el exito"],
+    ["Generación Y", "Frustración"],
+    ["Generación Z - Millenials", "Irreverencia"]];
+
+class Persona{
+    constructor(nombre, edad, DNI, sexo, peso, altura, anioNacimiento){
+        this._nombre = nombre;
+        this._edad = edad;
+        this._DNI = DNI;
+        this._sexo = sexo;
+        this._peso = peso;
+        this._altura = altura;
+        this._anioNacimiento = anioNacimiento;
+    }
+
+    get nombre(){
+        return this._nombre;
+    }
+
+    get edad(){
+        return this._edad;
+    }
+
+    get DNI(){
+        return this._DNI;
+    }
+
+    get sexo(){
+        return this._sexo;
+    }
+
+    get peso(){
+        return this._peso;
+    }
+
+    get altura(){
+        return this._altura;
+    }
+
+    get anioNacimiento(){
+        return this._anioNacimiento;
+    }
+
+    mostrarGeneracion(){
+        if(this.anioNacimiento >= 1930 && this.anioNacimiento <= 1948) console.log(`Generación: ${generaciones[0][0]}. Rasgo característico: ${generaciones[0][1]}`);
+        if(this.anioNacimiento >= 1949 && this.anioNacimiento <= 1968) console.log(`Generación: ${generaciones[1][0]}. Rasgo característico: ${generaciones[1][1]}`);
+        if(this.anioNacimiento >= 1969 && this.anioNacimiento <= 1980) console.log(`Generación: ${generaciones[2][0]}. Rasgo característico: ${generaciones[2][1]}`);
+        if(this.anioNacimiento >= 1981 && this.anioNacimiento <= 1993) console.log(`Generación: ${generaciones[3][0]}. Rasgo característico: ${generaciones[3][1]}`);
+        if(this.anioNacimiento >= 1994 && this.anioNacimiento <= 2010) console.log(`Generación: ${generaciones[4][0]}. Rasgo característico: ${generaciones[4][1]}`);
+    }
+    esMayorDeEdad(){
+        this._edad >= 18? console.log(`La persona es mayor de edad.`):console.log(`La persona no es mayor de edad.`);
+    }
+
+    mostrarDatos(){
+        console.log(`Nombre: ${this.nombre}`);
+        console.log(`Edad: ${this.edad}`);
+        console.log(`DNI: ${this.DNI}`);
+        console.log(`Sexo: ${this.sexo}`);
+        console.log(`Peso: ${this.peso}`);
+        console.log(`Altura: ${this.altura}`);
+        console.log(`Año de nacimiento: ${this.anioNacimiento}`);
+    }
+
+    generarDNI(){
+        return Math.floor(Math.random() * 6000000) + 1;
+    }
+}
+/* 
+6- Crear una clase Libro que contenga al menos las siguientes propiedades:
+ISBN
+Título
+Autor
+Número de páginas
+
+Crear sus respectivos métodos get y set correspondientes para cada propiedad. Crear el método
+mostrarLibro() para mostrar la información relativa al libro con el siguiente formato:
+
+“El libro xxx con ISBN xxx creado por el autor xxx tiene páginas xxx”
+
+Crear al menos 2 objetos libros y utilizar el método mostrarLibro();
+Por último, indicar cuál de los 2 objetos “libros” tiene más páginas.
+
+*/
+
+class Libro{
+    constructor(isbn, titulo, autor, numeroDePaginas){
+        this._ISBN = isbn;
+        this._titulo = titulo;
+        this._autor = autor;
+        this._numeroDePaginas = numeroDePaginas;   
+    }
+
+    get isbn(){
+        return this._ISBN;
+    }
+
+    get autor(){
+        return this._autor;
+    }
+
+    get titulo(){
+        return this._titulo;
+    }
+
+    get numeroDePaginas(){
+        return this._numeroDePaginas;
+    }
+
+    set isbn(isbn){
+        this._ISBN = isbn;
+    }
+
+    set titulo(titulo){
+        this._titulo = titulo;
+    }
+
+    set autor(autor){
+        this._autor = autor;
+    }
+
+    set numeroDePaginas(numeroDePaginas){
+        this._numeroDePaginas = numeroDePaginas;
+    }
+
+    mostrarLibro(){
+        console.log(`El libro ${this.titulo} con ISBN ${this.isbn} creado por el autor ${this.autor} tiene ${this.numeroDePaginas} páginas`);
+    }
+}
+
+const l1 = new Libro(46878945436,"La cancha de tu hermana", "yo mero", 5);
+const l2 = new Libro(46878945435,"Me caigo en todo", "yo tambien", 4);
+
+l1.numeroDePaginas > l2.numeroDePaginas?
+console.log(`El libro "${l1.titulo}" tiene más páginas que "${l2.titulo}"`):
+console.log(`El libro "${l2.titulo}" tiene más páginas que "${l1.titulo}"`);
